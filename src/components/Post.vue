@@ -48,19 +48,22 @@ methods: {
         margin-bottom: 10px;
         background-color: rgb(218, 214, 214);
         border-radius: 15px;
+        text-align: left;
     }
 
     .post .postHeader .logoPost{
         display: inline-block;
-        margin-top: 5px;
-        margin-left: 2%;
+        margin-top: 10px;
+        margin-left: 10px;
     }
 
     .post .postHeader .date {
         display: inline-block;
         vertical-align: top;
         float: right;
-        margin-right: 5%;
+        margin-right: 20px;
+        font-size: 20px;
+        color: black;
     }
 
     .post .photo {
@@ -68,10 +71,14 @@ methods: {
       margin-left: auto;
       margin-right: auto;
       width: 60%;
+      color: black;
+      text-align: center;
     }
 
     .post .comment {
         margin-left: 10px;
+        color: black;
+        font-size: 20px;
     }
 
     .post .postAddon {
@@ -80,10 +87,8 @@ methods: {
 
     .like {
         margin-left: 10px;
-        margin-bottom: 0px;
-        width: 25px;
-        height: 26px;
-
+        margin-bottom: 5px;
+        width: 50px;
     }
 
     .likes {
