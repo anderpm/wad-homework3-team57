@@ -1,9 +1,13 @@
 <template>
     <form class="form" > 
 
-        <input type="email" name="email" placeholder="Email" id="inputemail" v-model="email">
-        <input type="password" name="password" placeholder="Password" id="inputpassword">
-        <input type="submit" name="login" placeholder="Login" value="Login" id="submit" disabled> 
+        <a>aaa</a><br>
+        <a>aaa</a><br>
+        <a>aaa</a><br>
+        <a>aaa</a><br>
+        <input type="email" name="email" placeholder="Email" id="inputemail"><br>
+        <input type="password" name="password" placeholder="Password" id="inputpassword"><br>
+        <input type="submit" name="login" placeholder="Login" value="Login" id="submit" disabled><br>
 
     </form>
   </template>
