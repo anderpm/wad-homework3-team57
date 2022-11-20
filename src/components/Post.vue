@@ -6,7 +6,7 @@
             
         </div>
         
-        <div class="post" v-for="post in postList" :key="post.key" >
+        <div class="post" v-for="post in postList" :key="post.postId"  :id="post.postId">
             <div class="postHeader">
                 <a class="logoPost" href="#"><img src="../assets/user.png" width="50" height="50" alt="Picture of the person who uploaded the post"></a>
                 <p class="date">{{ post.createTime }}</p>
@@ -14,8 +14,8 @@
             <img class="photo" src="../assets/tartu.jpg" alt="Post photo"><a></a>
             <p class="comment">{{ post.comment }}</p>
             <div >
-                <img class="like" src="../assets/like.png" v-on:click="LikeButtonPressed" alt="Like button">
-                <span class="likes">{{post.likes}}</span>
+                <img class="like" src="../assets/like.png" v-on:click="LikeButtonPressed" :id="post.postId" alt="Like button">
+                <span class="likes">{{ post.likes }}</span>
              </div>
             
         </div>
@@ -33,9 +33,9 @@ export default {
   },
 methods: {
     LikeButtonPressed: function(event){
-        console.log(event.target.postList)
-        console.log("like clicked")
-        this.$store.dispatch("PostLiked")
+        console.log(event.currentTarget.id)
+        var id = event.currentTarget.id
+        this.$store.dispatch("PostLiked", {postid: id})
     }
 }
 }

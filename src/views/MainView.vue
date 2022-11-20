@@ -57,7 +57,6 @@ export default {
       margin-bottom: -10px;
       height: auto;
       width: auto;
-      margin-top: 70px;
   }
 
   .right{

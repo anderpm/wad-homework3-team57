@@ -100,9 +100,15 @@ export default createStore({
   getters: {
   },
   mutations: {
-    LikeButtonPressed: state => {
-      console.log(this)
-      console.log(state)
+    LikeButtonPressed(state, payload){
+      console.log(payload.postid)
+      state.postList.forEach(post =>{
+        if(post.postId == payload.postid){
+          console.log(post.likes)
+         post.likes += 1;
+          console.log(post.likes)
+        } 
+      })
 
     },
     ResetLikes: state =>{
@@ -113,8 +119,10 @@ export default createStore({
     }
   },
   actions: {
-    PostLiked(context, id){
-      console.log(context)
+    PostLiked:({commit}, payload)=>{
+      console.log(payload)
+      commit('LikeButtonPressed', payload)
+
     },
     ResetAllLikes: act =>{
       console.log("Reseting all likes")
