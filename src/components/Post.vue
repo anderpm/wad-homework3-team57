@@ -1,5 +1,5 @@
 <template>
-
+    
     <div class="post">
         <div class="postHeader">
             <a class="logoPost" href="#"><img src="../assets/user.png" width="50" height="50" alt="Picture of the person who uploaded the post"></a>
@@ -34,19 +34,22 @@ export default {
         margin-bottom: 10px;
         background-color: rgb(218, 214, 214);
         border-radius: 15px;
+        text-align: left;
     }
 
     .post .postHeader .logoPost{
         display: inline-block;
-        margin-top: 5px;
-        margin-left: 2%;
+        margin-top: 10px;
+        margin-left: 10px;
     }
 
     .post .postHeader .date {
         display: inline-block;
         vertical-align: top;
         float: right;
-        margin-right: 5%;
+        margin-right: 20px;
+        font-size: 20px;
+        color: black;
     }
 
     .post .photo {
@@ -54,16 +57,20 @@ export default {
       margin-left: auto;
       margin-right: auto;
       width: 60%;
+      color: black;
+      text-align: center;
     }
 
     .post .comment {
         margin-left: 10px;
+        color: black;
+        font-size: 20px;
     }
 
     .post .like {
         margin-left: 10px;
         margin-bottom: 5px;
-        width: 5%;
+        width: 50px;
     }
 
 </style>
