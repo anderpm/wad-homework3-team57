@@ -1,5 +1,6 @@
 <template>
     <div class="header">
+        <h1>{{ msg }}</h1>
         <ul class="nav">
             <li><router-link to="/" class="link">Main</router-link></li>
             <li><a class="verticalBar">|</a></li>
