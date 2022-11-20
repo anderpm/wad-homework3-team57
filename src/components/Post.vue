@@ -1,29 +1,43 @@
 <template>
 
-    <div class="post">
-        <div class="postHeader">
-            <a class="logoPost" href="#"><img src="../assets/user.png" width="50" height="50" alt="Picture of the person who uploaded the post"></a>
-            <p class="date">{{createTime}}</p>
+    <div class="center">
+        <div class="post">
+            <div class="postAddon"></div>
+            
         </div>
-        <img class="photo" src="{{ msg }}" alt="Post photo"><a></a>
-        <p class="comment">{{comment}}</p>
-        <img class="like" src="../assets/like.png" alt="Like button"><a></a>
+        
+        <div class="post" v-for="post in postList" :key="post.key" >
+            <div class="postHeader">
+                <a class="logoPost" href="#"><img src="../assets/user.png" width="50" height="50" alt="Picture of the person who uploaded the post"></a>
+                <p class="date">{{ post.createTime }}</p>
+            </div>
+            <img class="photo" src="../assets/tartu.jpg" alt="Post photo"><a></a>
+            <p class="comment">{{ post.comment }}</p>
+            <div >
+                <img class="like" src="../assets/like.png" v-on:click="LikeButtonPressed" alt="Like button">
+                <span class="likes">{{post.likes}}</span>
+             </div>
+            
+        </div>
     </div>
-       
 </template>
 
 <script>
 export default {
   name: 'Post',
-  props: {
-    postId: Number,
-    authorId: Number,
-    authorName: String,
-    createTime: String,
-    comment: String,
-    likes: Number,
-    photo: String
-  }
+  props: ["postList"],
+  computed: {
+    postList(){
+        return this.$store.state.postList
+      }
+  },
+methods: {
+    LikeButtonPressed: function(event){
+        console.log(event.target.postList)
+        console.log("like clicked")
+        this.$store.dispatch("PostLiked")
+    }
+}
 }
 </script>
 
@@ -60,10 +74,26 @@ export default {
         margin-left: 10px;
     }
 
-    .post .like {
-        margin-left: 10px;
-        margin-bottom: 5px;
-        width: 5%;
+    .post .postAddon {
+        margin-bottom: 90px;
     }
 
+    .like {
+        margin-left: 10px;
+        margin-bottom: 0px;
+        width: 25px;
+        height: 26px;
+
+    }
+
+    .likes {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        width: 25px;
+        font-weight: 800;
+    }
+
+    .like:hover{
+        cursor: pointer
+    }
 </style>
