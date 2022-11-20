@@ -5,7 +5,7 @@
             <a class="logoPost" href="#"><img src="../assets/user.png" width="50" height="50" alt="Picture of the person who uploaded the post"></a>
             <p class="date">{{createTime}}</p>
         </div>
-        <img class="photo" src="{{ msg }}" alt="Post photo"><a></a>
+        <img class="photo" src="{{photo}}" alt="Post photo"><a></a>
         <p class="comment">{{comment}}</p>
         <img class="like" src="../assets/like.png" alt="Like button"><a></a>
     </div>
