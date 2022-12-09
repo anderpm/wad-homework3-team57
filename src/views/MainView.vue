@@ -1,8 +1,20 @@
 <template>
   <div class="main">
     <Header />
-    <LeftSide />
-    <Post />
+    <div class="middle">
+      <div class="left">
+
+      </div>
+
+      <div class="center">
+        <Post />
+      </div>
+
+      <div class="right">
+
+      </div>
+    </div>
+
     <Button v-on:click="ResetAllLikes">Reset likes</Button>
     <Footer />
   </div>
@@ -35,7 +47,7 @@ export default {
 
 <style>
 
-  .middle {
+.middle {
       display: flex;
       justify-content: center;
       margin-top: 10px;
@@ -101,5 +113,4 @@ export default {
   }
 
   }
-
 </style>

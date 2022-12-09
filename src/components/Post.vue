@@ -1,6 +1,7 @@
 <template>
 
     <div class="center">
+        <div class="left"></div>
         <div class="post">
             <div class="postAddon"></div>
             
@@ -11,7 +12,7 @@
                 <a class="logoPost" href="#"><img src="../assets/user.png" width="50" height="50" alt="Picture of the person who uploaded the post"></a>
                 <p class="date">{{ post.createTime }}</p>
             </div>
-            <img class="photo" src="../assets/tartu.jpg" alt="Post photo"><a></a>
+            <img class="photo" src="@/assets/tartu.jpg" alt="Post photo"><a></a>
             <p class="comment">{{ post.comment }}</p>
             <div >
                 <img class="like" src="../assets/like.png" v-on:click="LikeButtonPressed" :id="post.postId" alt="Like button">
@@ -19,6 +20,7 @@
              </div>
             
         </div>
+        <div class="right"></div>
     </div>
 </template>
 
@@ -49,6 +51,8 @@ methods: {
         background-color: rgb(218, 214, 214);
         border-radius: 15px;
         text-align: left;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     .post .postHeader .logoPost{
@@ -88,7 +92,7 @@ methods: {
     .like {
         margin-left: 10px;
         margin-bottom: 5px;
-        width: 50px;
+        width: 25px;
     }
 
     .likes {
@@ -101,4 +105,14 @@ methods: {
     .like:hover{
         cursor: pointer
     }
+
+   
+  .left{
+      display: inline;
+      margin-right: 10px;
+      background-color: rgb(192, 192, 192);
+      border-radius: 15px;
+      margin-top: 70px;
+      width: 20%;
+  }
 </style>

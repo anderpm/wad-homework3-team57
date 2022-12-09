@@ -10,7 +10,7 @@ export default createStore({
             createTime: "Oct 24, 2022",
             comment: "Tartu 2022",
             likes: 21,
-            photo: "../assets/tartu.jpg"
+            photo: "@/assets/tartu.jpg"
         },
         {
             postId: 2,
