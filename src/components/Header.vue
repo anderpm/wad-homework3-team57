@@ -4,7 +4,7 @@
         <ul class="nav">
             <li><router-link to="/" class="link">Main</router-link></li>
             <li><a class="verticalBar">|</a></li>
-            <li><router-link to="/signup" class="link">Sign Up</router-link></li>
+            <li><router-link to="/login" class="link">Sign Up</router-link></li>
         </ul>
     </div>
   </template>

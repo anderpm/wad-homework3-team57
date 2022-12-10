@@ -1,14 +1,21 @@
 <template>
+  <div class="post">
     <form class="form" > 
-
+      
+        <label>Email: </label>
         <input type="email" name="email" v-model="email" @input="validateEmail" placeholder="Email" id="inputemail"><br>
+      
+      
+        <label>Password: </label>
         <input type="password" v-model="password" @input="checkPassword"  autocomplete="off" placeholder="Password" /><br>
-        <input type="submit" name="login" placeholder="Login" value="Login" id="submit" :disabled="!valid_password"><br>
+      
+        <input type="submit" name="login" placeholder="Login" value="Singup" id="submit" :disabled="!valid_password"><br>
         <p class = "error" v-if="!this.valid_mail">Email is invalid!</p>
         <p class = "error" v-if="!this.valid_password">Password is invalid!</p>
 
     </form>
-  </template>
+  </div>
+</template>
   
   <script>
   export default {
@@ -97,10 +104,52 @@ methods: {
         margin: 0 10px;
     }
 
-    .form {
-      margin-top: 100px;
+    label{
+      font-size: 30px;
+      margin-left: 5%;
     }
 
+    .form {
+      height: 500px;
+      padding: 30px;
+      text-align: left;
+      background-color: rgb(218, 214, 214);
+      border-radius: 15px;
+      width: 80%;
+      display:table;/* shrinks to fit conntent */
+      margin:auto;
+      margin-top: 5%;
+    }
+
+    .form input[type = "submit"] {
+      background-color: #5d94cf;
+      border: 0px;
+      color: white;
+      height: 30px;
+      width: 75px;
+      margin-top: 12px;
+      border-radius: 5px;
+      cursor: auto;
+      margin-left: 46%;
+    }
+
+    .form input[type = "email"], .form input[type = "password"] {
+      display: block;
+      padding: 10px 9px;
+      width: 80%;
+      border-radius: 5px;
+      border-color: white;
+      text-align: center;
+      margin-left: 8%;
+      height:5%; 
+      width:80%;
+    }
+    .post{
+        background-color: rgb(192, 192, 192);
+        border-radius: 15px;
+        text-align: left;
+
+    }
     .error{
       color:darkred;
       font-weight: 800;
