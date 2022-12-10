@@ -18,11 +18,11 @@
   
       </form>
     </div>
-  </template>
+</template>
     
-    <script>
+  <script>
     export default {
-      name: 'Form',
+      name: 'LogIn',
       props: {
           email: "",
           password: null,
