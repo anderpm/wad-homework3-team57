@@ -1,13 +1,18 @@
 <template>
   <div class="main">
-    <Header />
+    <Header/>
     <div class="middle">
       <div class="left">
 
       </div>
 
       <div class="center">
+        <LinkButton class="bLogout" link="" buttonMsg="Logout"/>
         <Post />
+        <div class="dButtons">
+          <LinkButton class="bAddpost" link="/signup" buttonMsg="Add post"/>
+          <LinkButton class="bDeleteall" link="/signup" buttonMsg="Delete all"/>
+        </div>
       </div>
 
       <div class="right">
@@ -15,7 +20,7 @@
       </div>
     </div>
 
-    <Button v-on:click="ResetAllLikes">Reset likes</Button>
+    <!--<Button v-on:click="ResetAllLikes">Reset likes</Button>-->
     <Footer />
   </div>
 </template>
@@ -27,6 +32,7 @@ import Header from '@/components/Header.vue'
 import Post from '@/components/Post.vue'
 import Footer from '@/components/Footer.vue'
 import LeftSide from '@/components/LeftSide.vue'
+import LinkButton from '@/components/LinkButton.vue'
 
 export default {
   name: 'View',
@@ -40,60 +46,80 @@ export default {
     Header,
     Post,
     Footer,
-    LeftSide
+    LeftSide,
+    LinkButton
   }
 }
 </script>
 
 <style>
 
-.middle {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-      margin-left: 5px;
-      margin-right: 5px;
+  .middle {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   .left{
-      display: inline;
-      margin-right: 10px;
-      background-color: rgb(192, 192, 192);
-      border-radius: 15px;
-      margin-top: 70px;
+    display: inline;
+    margin-right: 10px;
+    background-color: rgb(192, 192, 192);
+    border-radius: 15px;
+    margin-top: 80px;
   }
 
   .center{
-      display: inline;
-      margin-right: 10px;
-      margin-bottom: -10px;
-      height: auto;
-      width: auto;
+    display: inline;
+    margin-right: 10px;
+    margin-bottom: -10px;
+    height: auto;
+    width: auto;
+  }
+
+  .center .bUp{
+    margin-top: 80px;
+    margin-bottom: -100px;
+  }
+  
+  .center .dButtons .bLeft{
+    display: inline-block;
+    float: left;
+    margin-left: 10%;
+    margin-bottom: 5px;
+  }
+
+  .center .dButtons .bRight{
+    display: inline-block;
+    float: right;
+    margin-right: 10%;
+    margin-bottom: 5px;
   }
 
   .right{
     display: inline;
     background-color: rgb(192, 192, 192);
     border-radius: 15px;
-    margin-top: 70px;
-}
+    margin-top: 80px;
+  }
 
   /* 
     Applies when the browser's width is 0px wide or wider and less than 500px: 
   */
   @media (min-width: 0px) and (max-width: 500px){
 
-  .left {
+    .left {
       display: none;
-  }
-  .center{
+    }
+    .center{
       width: 100%;
       margin-left: auto;
       margin-right: auto;
-  }
-  .right {
+    }
+    .right {
       display: none;
-  }
+    }
 
   }
 
@@ -102,15 +128,16 @@ export default {
   */
   @media (min-width: 500px) {
 
-  .left {
+    .left {
       width: 20%;
-  }
-  .center{
+    }
+    .center{
       width: 60%;
-  }
-  .right {
+    }
+    .right {
       width: 20%;
-  }
+    }
 
   }
+
 </style>
