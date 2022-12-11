@@ -10,8 +10,8 @@
         <LinkButton class="bLogout" link="" buttonMsg="Logout"/>
         <Post />
         <div class="dButtons">
-          <LinkButton class="bAddpost" link="/signup" buttonMsg="Add post"/>
-          <LinkButton class="bDeleteall" link="/signup" buttonMsg="Delete all"/>
+          <LinkButton class="bAddpost" link="/addpost" buttonMsg="Add post"/>
+          <LinkButton class="bDeleteall" link="/apost" buttonMsg="Delete all"/>
         </div>
       </div>
 
@@ -78,19 +78,19 @@ export default {
     width: auto;
   }
 
-  .center .bUp{
+  .center .bLogout{
     margin-top: 80px;
     margin-bottom: -100px;
   }
   
-  .center .dButtons .bLeft{
+  .center .dButtons .bAddpost{
     display: inline-block;
     float: left;
     margin-left: 10%;
     margin-bottom: 5px;
   }
 
-  .center .dButtons .bRight{
+  .center .dButtons .bDeleteall{
     display: inline-block;
     float: right;
     margin-right: 10%;
