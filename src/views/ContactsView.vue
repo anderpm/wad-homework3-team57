@@ -49,7 +49,7 @@
         margin-right: 10px;
         background-color: rgb(192, 192, 192);
         border-radius: 15px;
-        margin-top: 70px;
+        margin-top: 80px;
     }
   
     .center{
@@ -64,7 +64,7 @@
       display: inline;
       background-color: rgb(192, 192, 192);
       border-radius: 15px;
-      margin-top: 70px;
+      margin-top: 80px;
   }
   
     /* 

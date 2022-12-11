@@ -23,30 +23,14 @@
     <!-- Add "scoped" attribute to limit CSS to this component only -->
     <style scoped>
   
-      ul {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          text-align: center;
-      }
-  
-      li {
-          display: inline-block;
-          margin: 0 10%;
-      }
-
     .center{
         height: 100px;
         background-color: rgb(218, 214, 214);
         border-radius: 15px;
         text-align: center;
-        margin-top: 6%;
-        margin-bottom: 1%;
+        margin-top: 80px;
+        margin-bottom: 5px;
         padding: 200px 0;
-    }
-  
-
-      /* class selectors */
-  
+    }  
   
   </style>

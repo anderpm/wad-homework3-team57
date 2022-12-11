@@ -146,7 +146,8 @@
         width: 80%;
         display:table;/* shrinks to fit conntent */
         margin:auto;
-        margin-top: 5%;
+        margin-top: 90px;
+        
       }
   
       .form input[type = "submit"] {
@@ -176,7 +177,6 @@
           background-color: rgb(192, 192, 192);
           border-radius: 15px;
           text-align: left;
-  
       }
       .error{
         color:darkred;
