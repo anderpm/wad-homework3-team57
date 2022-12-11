@@ -9,7 +9,7 @@
         <label>Password: </label>
         <input type="password" v-model="password" @input="checkPassword"  autocomplete="off" placeholder="Password" /><br>
         <ul class="nav">
-            <button @click="LoggedIn"  class="center">LogIn</button>
+            <button @click="LogIn" id="submit"  class="button">LogIn</button>
             <li> or</li>
             <li><router-link to="/signup" class="link"><button class="button">Singup</button></router-link></li>
         </ul>
@@ -87,7 +87,6 @@
       
     // }, 
     LoggedIn() {
-      alert("I was clicked!");
       var data = {
         email: this.email,
         password: this.password
