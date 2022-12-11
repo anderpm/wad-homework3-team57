@@ -7,7 +7,8 @@
       </div>
 
       <div class="center">
-        <LinkButton class="bLogout" link="" buttonMsg="Logout"/>
+        <button v-if = "authResult" @click="Logout" class="bLogout">Logout</button>
+        
         <Post />
         <div class="dButtons">
           <LinkButton class="bAddpost" link="/addpost" buttonMsg="Add post"/>
@@ -33,14 +34,10 @@ import Post from '@/components/Post.vue'
 import Footer from '@/components/Footer.vue'
 import LeftSide from '@/components/LeftSide.vue'
 import LinkButton from '@/components/LinkButton.vue'
+import auth from "../auth";
 
 export default {
   name: 'View',
-  methods: {
-    ResetAllLikes: function () {
-      this.$store.dispatch("ResetAllLikes")
-    }
-  },  
   components: {
     HelloWorld,
     Header,
@@ -48,8 +45,43 @@ export default {
     Footer,
     LeftSide,
     LinkButton
-  }
-}
+  },
+  data: function() {
+    return {
+    posts:[ ],
+    authResult: auth.authenticated()
+    }
+  },
+
+  methods: {
+    ResetAllLikes: function () {
+      this.$store.dispatch("ResetAllLikes")
+    },
+    Logout() {
+      fetch("http://localhost:3000/auth/logout", {
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log('jwt removed');
+        console.log('jwt removed:' + auth.authenticated());
+        this.$router.push("/login");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error logout");
+      });
+    },
+  }, 
+
+  mounted() {
+        fetch('http://localhost:3000/posts')
+        .then((response) => response.json())
+        .then(data => this.posts = data)
+        .catch(err => console.log(err.message))
+    }
+};
 </script>
 
 <style>

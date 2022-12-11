@@ -9,7 +9,7 @@
         <label>Password: </label>
         <input type="password" v-model="password" @input="checkPassword"  autocomplete="off" placeholder="Password" /><br>
       
-        <input type="submit" name="login" placeholder="Login" value="Singup" id="submit" :disabled="!valid_password"><br>
+        <input type="submit" @click="SignUp" name="login" placeholder="Login" value="Singup" id="submit" :disabled="!valid_password"><br>
         <p class = "error" v-if="!this.valid_mail">Email is invalid!</p>
         <p class = "error" v-if="!this.valid_password">Password is invalid!</p>
 
@@ -48,41 +48,68 @@
     },
   
 methods: {
-  validateEmail() {
-    console.log(this.email)
-    const format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if(this.email.length > 5){
-      console.log("here")
-      this.valid_mail = format.test(this.email)
-    }else{
-      this.valid_mail = true
-    }
-  }
-  ,
+  // validateEmail() {
+  //   console.log(this.email)
+  //   const format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //   if(this.email.length > 5){
+  //     console.log("here")
+  //     this.valid_mail = format.test(this.email)
+  //   }else{
+  //     this.valid_mail = true
+  //   }
+  // }
+  // ,
     
-  checkPassword() {
-    this.password_length = this.password.length;
-    const format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-    this.specialChar = format.test(this.password)
+  // checkPassword() {
+  //   this.password_length = this.password.length;
+  //   const format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+  //   this.specialChar = format.test(this.password)
 
-    if (this.password_length < 8) {
-      this.over8 = false;
-    }else{
-      this.over8 = true;
-    }
-    if (this.password_length > 14) {
-      this.under15 = false;
-    }else{
-      this.under15 = true;
-    }
+  //   if (this.password_length < 8) {
+  //     this.over8 = false;
+  //   }else{
+  //     this.over8 = true;
+  //   }
+  //   if (this.password_length > 14) {
+  //     this.under15 = false;
+  //   }else{
+  //     this.under15 = true;
+  //   }
 
-    if(this.password.length > 1){
-      this.valid_password = this.specialChar && this.over8 && this.under15
+  //   if(this.password.length > 1){
+  //     this.valid_password = this.specialChar && this.over8 && this.under15
 
-    }
-    console.log(this.valid_password)
+  //   }
+  //   console.log(this.valid_password)
     
-  }
+  // },
+
+
+  SignUp() {
+      var data = {
+        email: this.email,
+        password: this.password
+      };
+      // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+      fetch("http://localhost:3000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+          body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+      console.log(data);
+      //this.$router.push("/");
+      location.assign("/");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error");
+      });
+    },
     
 }
 } 

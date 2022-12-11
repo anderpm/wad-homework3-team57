@@ -22,6 +22,7 @@
     import Footer from '@/components/Footer.vue'
     import HelloWorld from '@/components/HelloWorld.vue'
     import AddPost from '@/components/AddPost.vue'
+    import auth from "../auth";
     
     export default {
         name: 'AddPostView',
@@ -30,6 +31,11 @@
         Footer,
         HelloWorld,
         AddPost
+        },
+        data: function() {
+            return {
+                authResult: auth.authenticated()
+        }
         }
     }
 </script>
