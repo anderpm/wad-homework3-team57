@@ -7,12 +7,12 @@
       </div>
 
       <div class="center">
-        <button v-if = "authResult" @click="Logout" class="bLogout">Logout</button>
+        <button class="bLogout" v-if = "authResult" @click="Logout">Logout</button>
         
         <Post />
         <div class="dButtons">
-          <LinkButton class="bAddpost" @click="DeleteAllPosts" link="/addpost" buttonMsg="Add post"/>
-          <LinkButton class="bDeleteall" link="/apost" buttonMsg="Delete all"/>
+          <router-link to="/addpost" custom v-slot="{ navigate }"><button class="bAddpost" @click="navigate" role="link">Add posts</button></router-link>
+          <button type="button" class="bDeleteall" @click="DeleteAllPosts">Delete all</button>
         </div>
       </div>
 
@@ -125,6 +125,20 @@ export default {
     width: auto;
   }
 
+  button {
+        background-color: #81a8d7;
+        border: none;
+        color: rgb(0, 0, 0);
+        padding: 5px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 25px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 25px;
+    }
+
   .center .bLogout{
     margin-top: 80px;
     margin-bottom: -100px;
@@ -134,7 +148,7 @@ export default {
     display: inline-block;
     float: left;
     margin-left: 10%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 
   .center .dButtons .bDeleteall{
