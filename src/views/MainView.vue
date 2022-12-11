@@ -11,7 +11,7 @@
         
         <Post />
         <div class="dButtons">
-          <LinkButton class="bAddpost" link="/addpost" buttonMsg="Add post"/>
+          <LinkButton class="bAddpost" @click="DeleteAllPosts" link="/addpost" buttonMsg="Add post"/>
           <LinkButton class="bDeleteall" link="/apost" buttonMsg="Delete all"/>
         </div>
       </div>
@@ -73,10 +73,25 @@ export default {
         console.log("error logout");
       });
     },
+
+    DeleteAllPosts(){
+      fetch("http://localhost:3000/api/posts/all", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+          body: JSON.stringify(data),
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error");
+      });
+    }
   }, 
 
   mounted() {
-        fetch('http://localhost:3000/posts')
+        fetch('http://localhost:3000/api/posts')
         .then((response) => response.json())
         .then(data => this.posts = data)
         .catch(err => console.log(err.message))
